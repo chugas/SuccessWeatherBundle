@@ -1,0 +1,13 @@
+parameters:
+    weather_underground.apikey: ~
+    weather_underground.format: ~
+    weather_underground.host_data_features: ~
+    weather_underground.host_autocomlete: ~
+
+services:
+    weather_underground.data_features:
+        class: Success\WeatherBundle\API\DataFeatures
+        arguments: [%weather_underground.apikey%, %weather_underground.format%, %weather_underground.host_data_features% ]
+    weather_underground.autocomplete:
+        class: Success\WeatherBundle\API\AutoComplete
+        arguments: [%weather_underground.apikey%, %weather_underground.format%, %weather_underground.host_autocomlete% ]

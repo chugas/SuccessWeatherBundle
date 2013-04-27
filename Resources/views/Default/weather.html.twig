@@ -1,0 +1,82 @@
+{% set infos = data.forecast.simpleforecast.forecastday %}
+{% set today = data.current_observation %}
+
+<div class="home_gadget_weather" style="width: 220px; margin: 4px auto;">
+  <script type="text/javascript">
+    var cssText = '\
+      .w_box table {font: 11px arial,sans-serif;} \n\
+      .w_box{padding:1px 0 0}\n\
+      .w_ind{width:110px;overflow:hidden;height:83px;float:left}\n\
+      .w_num{font-size:100%}\n\
+      .w_fci{width:45px;height:45px;}\n\
+      .w_fcid{height:45px;width:45px;}\n\
+      .w_ccs{padding:2px}\n\
+      .w_ccis{padding:1px;float:left;}\n\
+      .w_cci{height:60px;padding:1px;width:60px}\n\
+      .w_cc_temp{font-size:180%;float:left;padding:0 5px;padding-right:10px}\n\
+      .w_cc_text{font-size: 11px; overflow:hidden}\n\
+      .w_fcs{height:77px;padding:2px 0 0}\n\
+      .w_fc{text-align:center;padding: 0 4px; float:left}\n\
+      .w_spr{height:1px;border:none;color:#bbb;background:#bbb}\n\
+      .w_lnk {color:#00c;font-weight:bold;}\n\
+      .w_as{color:#6f6f6f;font-size:80%;padding-top:5px}\n\
+      .w_deb{color:#6f6f6f;font-size:80%;padding-top:5px}';
+      
+      var weatherCssNode = document.getElementById('weather_css');
+      if (!weatherCssNode) {
+        weatherCssNode = document.createElement('style');
+        weatherCssNode.type = 'text/css';weatherCssNode.id = 'weather_css';
+        document.getElementsByTagName('head')[0].appendChild(weatherCssNode);
+        if (weatherCssNode.styleSheet) {
+          weatherCssNode.styleSheet.cssText = cssText;
+        } else {
+          cssText = document.createTextNode(cssText);
+          weatherCssNode.appendChild(cssText);
+        }
+      }
+  </script>
+
+  <div>
+
+    <div style="padding: 0px 2px 0px 5px;" class="modlabel">
+      <a class="w_lnk" href="#">{{ data.location.city }}</a>
+    </div>
+
+    <div class="w_box">
+      <table width="100%" cellspacing="0" cellpadding="0" border="0">
+        <tbody>
+          <tr>
+            <td>
+              <div class="w_ccs">
+                <div class="w_ccis">
+                  <img width="60" height="60" alt="{{ today.weather }}" src="{{ 'http://icons.wxug.com/i/c/h/' ~ today.icon ~ '.gif' }}" id="w_4_c0_icon" class="w_cci" /><br>
+                </div>
+                <div id="w_4_c0_temp" class="w_cc_temp">{{ today.temp_c }}°C</div>
+                <div id="w_4_c0_text" style="float: none" class="w_cc_text">
+                  Actual:&nbsp;{{ today.weather }}<br />
+                  Viento: {{ today.wind_dir ~ ' a ' ~ today.wind_kph ~ ' km/h' }}<br />
+                  Humedad: {{ today.relative_humidity }}</div>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>
+              <div id="w_4_c0_fcs" style="width:100%" class="w_fcs">
+                {% for info in infos %}
+                  <div title="{{ info.conditions }}" class="w_fc">{{ info.date.weekday }}<br />
+                    <div class="w_fcid">
+                      <img width="50" height="50" alt="{{ info.conditions }}" src="{{ 'http://icons.wxug.com/i/c/h/' ~ info.icon ~ '.gif' }}" class="w_fci" />
+                    </div><nobr>{{ info.low.celsius }}°&nbsp;|&nbsp;{{ info.high.celsius }}°</nobr>
+                  </div>
+                {% endfor %}
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+</div>
