@@ -1,4 +1,4 @@
-WeatherUndergroundBundle
+SuccessWeatherBundle
 =============
 
 Symfony2 bundle for working with Weather Underground API
@@ -54,8 +54,7 @@ success_weather:
 Usage example
 ============
 
-Data Features examples
-============
+### Data Features examples
 
 ``` php
     $wuApi->setRequestData(
@@ -72,8 +71,7 @@ Data Features examples
     $data = $wuApi->getData();
 ```
 
-AutoComplete example
-============
+### AutoComplete example
 
 ``` php
     $wuAutocomplete = $this->getContainer()->get('weather_underground.autocomplete');
