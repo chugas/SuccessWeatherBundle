@@ -1,0 +1,31 @@
+{
+    "name": "success/weather-underground",
+    "description": "Symfony2 bundle for working with Weather Underground API.",
+    "keywords": ["weather", "weather api", "weather underground api", "wunderground", "wunderground api"],
+    "homepage": "https://github.com/chugas/SuccessWeatherBundle",
+    "type": "symfony-bundle",
+    "license": "MIT",    
+    "authors": [
+        {
+            "name": "Nikolay Ivlev",
+            "email": "nikolay.kotovsky@gmail.com"
+        },
+        {
+            "name": "Gaston Caldeiro",
+            "email": "chugas488@gmail.com"          
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "kriswallsmith/buzz": "0.7"
+    },
+    "require-dev": {
+        "symfony/framework-bundle": "2.1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Success\\WeatherBundle": ""
+        }
+    },
+    "target-dir": "Success/WeatherBundle"
+}
