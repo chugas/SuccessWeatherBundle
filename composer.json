@@ -1,5 +1,5 @@
 {
-    "name": "success/weather-underground",
+    "name": "success/weather-bundle",
     "description": "Symfony2 bundle for working with Weather Underground API.",
     "keywords": ["weather", "weather api", "weather underground api", "wunderground", "wunderground api"],
     "homepage": "https://github.com/chugas/SuccessWeatherBundle",
