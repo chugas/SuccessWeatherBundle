@@ -29,5 +29,9 @@ class SuccessWeatherExtension extends Extension
         $container->setParameter('weather_underground.format', $config['format']);
         $container->setParameter('weather_underground.host_data_features', $config['host_data_features']);
         $container->setParameter('weather_underground.host_autocomlete', $config['host_autocomlete']);
+        $container->setParameter('weather_underground.cache_enabled', $config['cache_enabled']);
+        $container->setParameter('weather_underground.cache_dir', $config['cache_dir']);
+        $container->setParameter('weather_underground.cache_duration', $config['cache_duration']);        
+        
     }
 }
