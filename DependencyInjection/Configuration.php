@@ -37,6 +37,15 @@ class Configuration implements ConfigurationInterface
                     ->defaultValue('http://autocomplete.wunderground.com')
                     ->cannotBeEmpty()
                 ->end()
+                ->scalarNode('cache_enabled')
+                    ->cannotBeEmpty()
+                ->end()
+                ->scalarNode('cache_dir')
+                    ->cannotBeEmpty()
+                ->end()
+                ->scalarNode('cache_duration')
+                    ->cannotBeEmpty()
+                ->end()                
             ->end();
 
         return $treeBuilder;

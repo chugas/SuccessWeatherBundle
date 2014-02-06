@@ -1,4 +1,4 @@
-WeatherUndergroundBundle
+SuccessWeatherBundle
 =============
 
 Symfony2 bundle for working with Weather Underground API
@@ -45,17 +45,19 @@ weather_underground:
 ````
 #app/conﬁg/conﬁg.yml
 success_weather:
-    apikey: 02b04685c0db1361
+    apikey: KEYWUNDERGROUND
     format: json                                                # json/xml
     host_data_features: http://api.wunderground.com             # default: http://api.wunderground.com
     host_autocomlete: http://autocomplete.wunderground.com      # default: http://autocomplete.wunderground.com
+    cache_enabled: true
+    cache_dir: %kernel.cache_dir%/weather
+    cache_duration: 1800
 ````
 
 Usage example
 ============
 
-Data Features examples
-============
+### Data Features examples
 
 ``` php
     $wuApi->setRequestData(
@@ -72,8 +74,7 @@ Data Features examples
     $data = $wuApi->getData();
 ```
 
-AutoComplete example
-============
+### AutoComplete example
 
 ``` php
     $wuAutocomplete = $this->getContainer()->get('weather_underground.autocomplete');
