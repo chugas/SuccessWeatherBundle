@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "kriswallsmith/buzz": "0.7"
+        "kriswallsmith/buzz": "0.*"
     },
     "require-dev": {
         "symfony/framework-bundle": "2.1.*"
